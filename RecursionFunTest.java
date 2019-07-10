@@ -25,7 +25,7 @@ public class RecursionFunTest {
     assertEquals(6, rf.combinations(4, 2));
     assertEquals(10, rf.combinations(5, 2));
     // There are 2,598,960 possible poker hands:
-    assertEquals(2598960, rf.combinations(52, 5));
+   assertEquals(2598960, rf.combinations(52, 5));
   }
 
   @Test
