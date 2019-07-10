@@ -6,7 +6,7 @@
  * 
  * E get(int) void removeAll(E) void duplicateAll(E)
  * 
- * @author Rick Mercer and Your Name
+ * @author Rick Mercer and Difeng Ye
  */
 public class LinkedList<E extends Comparable<E>> {
 	// extends Comparable<E> means the type must be comparable to avoid CT errors
@@ -58,7 +58,7 @@ public class LinkedList<E extends Comparable<E>> {
 
 	// Find out how many elements are in the list O(1)
 	public int size() {
- 		return n;
+		return n;
 	}
 
 	// Find the maximum value in this list using the element's compareTo method
@@ -146,26 +146,26 @@ public class LinkedList<E extends Comparable<E>> {
 	public void duplicateAll(E el) {
 		// This public method requires a call to a private helper method
 		// with first as an argument. It must be recursive, no loop allowed.
-		duplicateAll(first,el);
+		duplicateAll(first, el);
 	}
-	public void duplicateAll(Node ref,E el) {
-		if(ref == null) {
+
+	public void duplicateAll(Node ref, E el) {
+		if (ref == null) {
 			return;
-		}else if(ref.data.equals(el)) {
+		} else if (ref.data.equals(el)) {
 			Node node = new Node(el);
-			if(ref.next == null) {
+			if (ref.next == null) {
 				ref.next = node;
-			}
-			else {
-				node.next = ref.next.next;
+			} else {
+				node.next = ref.next;
 				ref.next = node;
 			}
 
 			n++;
-			duplicateAll(ref.next.next,el);
-		}else {
-			duplicateAll(ref.next,el);
-			
+			duplicateAll(node.next, el);
+		} else {
+			duplicateAll(ref.next, el);
+
 		}
 	}
 }

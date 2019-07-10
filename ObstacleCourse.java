@@ -1,3 +1,4 @@
+//Difeng Ye
 /**
  * ObstacleCourse: A type that represents an obstacle course from which to
  * escape. This does not find the shorted path. Because of this, we must always
@@ -67,43 +68,43 @@ public class ObstacleCourse {
 	}
 
 	/**
-   * Finds the exit from the 2-D array. This method also must record the row and
-   * col where the exit was found
-   */
-  private boolean findExit(int row, int col) {
-    // TODO: Complete this method
-    //
-    // Do not forget to set the instance variable foundRow and 
-    // foundCol in this method when the exit is found.
-    //
-	boolean escaped  = false;
-	if(course[row][col]==' ') {
-		course[row][col] = TRIED; 
-	
-		if(row==0||row==course.length-1||col==0||col==course[0].length-1) {
-			foundRow = row;
-			foundCol = col;
-			escaped = true;
-		}else {
-			escaped = findExit(row-1, col);
-			if(!escaped) {
-				escaped = findExit(row+1, col);
-			}
-			if(!escaped) {
-				escaped =findExit(row, col-1);
-			}
-			if(!escaped) {
-				escaped = findExit(row, col+1);
-			}
-			
-		}
-		if(escaped) {
-			course[row][col] = PART_OF_PATH;
-		}
-	
-	}
-	return escaped;
+	 * Finds the exit from the 2-D array. This method also must record the row and
+	 * col where the exit was found
+	 */
+	private boolean findExit(int row, int col) {
+		// TODO: Complete this method
+		//
+		// Do not forget to set the instance variable foundRow and
+		// foundCol in this method when the exit is found.
+		//
+		boolean escaped = false;
+		if (course[row][col] == ' ') {
+			course[row][col] = TRIED;
 
-  }
-  
+			if (row == 0 || row == course.length - 1 || col == 0 || col == course[0].length - 1) {
+				foundRow = row;
+				foundCol = col;
+				escaped = true;
+			} else {
+				escaped = findExit(row - 1, col);
+				if (!escaped) {
+					escaped = findExit(row + 1, col);
+				}
+				if (!escaped) {
+					escaped = findExit(row, col - 1);
+				}
+				if (!escaped) {
+					escaped = findExit(row, col + 1);
+				}
+
+			}
+			if (escaped) {
+				course[row][col] = PART_OF_PATH;
+			}
+
+		}
+		return escaped;
+
+	}
+
 }
